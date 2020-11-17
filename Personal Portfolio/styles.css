@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: "Frank Ruhl Libre", serif;
+  scroll-behavior: smooth;
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+  #see-my-projects{
+    visibility:hidden;
+  }
+}
+
+#navbar {
+  background: #0b0c10;
+}
+
+#header {
+  position: fixed;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: 1s;
+  z-index: 1;
+}
+
+#nav__links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  top: 28.5px;
+}
+
+#nav__links a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  color: rgba(102, 252, 242, 1);
+}
+
+#nav__links a:hover {
+  color: rgba(102, 252, 242, 0.8);
+  border: 10px solid black;
+}
+
+#nav__links li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 0px 15px;
+}
+
+#welcome-section {
+  height: 100vh;
+  position: relative;
+  margin-bottom: 0;
+  margin-top: -15px;
+  background: url("https://images.unsplash.com/photo-1475257026007-0753d5429e10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-color: #0b0c10;
+}
+
+.welcome-text {
+  text-align: center;
+  position: relative;
+  top: 30%;
+  color: rgba(102, 252, 242, 1);
+  text-shadow: black 2px 2px;
+  font-weight: 700;
+}
+h1 {
+  font-size: 55px;
+  animation-name: typing;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  /* border-right: .15em solid #45a29e; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 1.5px; /* Adjust as needed */
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+h2 {
+  animation-name: back-color;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes back-color {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: rgba(102, 252, 242, 1);
+    color: #1f2833;
+    text-shadow: 0px 0px;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #45a29e;
+  }
+}
+
+#see-my-projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 300px;
+}
+
+#see-my-projects ul {
+  list-style: none;
+}
+#see-my-projects a {
+  color: white;
+  text-decoration: none;
+}
+#see-my-projects button {
+  padding: 8px 20px;
+  background-color: transparent;
+  border-color: #45a29e;
+  border-radius: 5px;
+  color: #c5c6c7;
+  font-size: 18px;
+  transition: 1s;
+  object-position: 50% 50%;
+  position: relative;
+  top: 50px;
+}
+#see-my-projects button:hover {
+  background-color: #5d001e;
+  color: white;
+  border-color: white;
+  border-radius: 25px;
+}
+
+/* project section */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 30px;
+}
+.project-image {
+  object-fit: cover;
+  background: green;
+}
+
+#projects {
+  zoom: 75%;
+  background: #222529;
+  color: #c5c6c7;
+}
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  /* background-color: ; */
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid #66fcf1;
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: #45a29e;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  
+  opacity:75%;
+  transition: 0.3s;
+}
+.project:hover {
+  background: #46a29e;
+  opacity:100%;
+}
+
+.code {
+  transition: color 0.8s ease-out;
+  visibility: hidden;
+}
+
+.project:hover .code {
+  /*color: #ff7f50;*/
+  color: black;
+  visibility: hidden;
+  padding: 0;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+
+  transition: 1s;
+}
+
+.project-title {
+  color: #222529;
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  /* font-weight: ; */
+}
+
+section a {
+  text-decoration: none;
+  color: black;
+}
+
+section h3 {
+  font-size: 50px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/*end of project section */
+
+/*start of contact section*/
+
+@media screen and (min-width: 1366px) {
+  #contact {
+    height: 45vh;
+  }
+}
+
+#contact {
+  background-color: #15171a;
+  width: 100%;
+  height: 35vh;
+  color: #45a29e;
+}
+
+#contact p {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.profile__links {
+  filter: invert(100%);
+  opacity: 70%;
+  transition: 0.3s ease-out;
+}
+.profile__links,
+ul,
+li {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  padding: 8px;
+  position: relative;
+  bottom: 15px;
+}
+
+.profile__links:hover {
+  opacity: 100%;
+}
+
+div > h5 {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: block;
+  bottom: 80px;
+  font-style: italic;
+  color: #45a29e;
+}
+
+#footer {
+  width: 100%;
+  height: 10vh;
+  background-color: #222529;
+  color: #c5c6c7;
+}
+
+#footer,
+p {
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
